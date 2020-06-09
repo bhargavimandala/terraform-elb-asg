@@ -1,0 +1,7 @@
+ vpc_id = "vpc-a55717cd"
+ region = "eu-west-2"
+ ami_id = "ami-0fc841be1f929d7d1"
+ instance = "t2.micro"
+ global_product = "mb"
+ global_environment = "prod"
+ subnets = "subnet-5d861027,subnet-e33e9baf"
