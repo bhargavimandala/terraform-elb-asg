@@ -1,5 +1,5 @@
    # Security Group Creation
-resource "aws_security_group" "sg" {
+resource "aws_security_group" "ec2_sg" {
   name   = "${var.global_product}.${var.global_environment}-ec2_sg"
   vpc_id = "${var.vpc_id}"
 
@@ -10,6 +10,17 @@ resource "aws_security_group" "sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+ ingress {
+    description = "elb sg"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+
 
 
    egress {
@@ -35,6 +46,13 @@ resource "aws_security_group" "elb_sg" {
     description = "elb sg"
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    description = "ec2 sg"
+    from_port   = 22
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

@@ -1,9 +1,10 @@
  resource "aws_launch_configuration" "as_conf" {
   name_prefix   = "terraform-lc-example-"
-  image_id      = "${var.ami_id}"
+  #image_id      = "${var.ami_id}"
+   image_id  = "${data.aws_ami.ami.id}"
   instance_type = "${var.instance}"
-  security_groups = ["${aws_security_group.elb_sg.id}"]
-
+  security_groups = ["${aws_security_group.ec2_sg.id}"]
+  key_name  = "${var.keyname}"
   lifecycle {
     create_before_destroy = true
   }

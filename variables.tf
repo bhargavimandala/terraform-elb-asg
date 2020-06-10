@@ -5,4 +5,4 @@
  variable "global_environment" {}
  variable "instance" {}
  variable "subnets" {}
-
+ variable "keyname" {}

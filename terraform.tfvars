@@ -5,3 +5,4 @@
  global_product = "mb"
  global_environment = "prod"
  subnets = "subnet-5d861027,subnet-e33e9baf"
+ keyname            = "awskeys-2"

@@ -4,11 +4,12 @@
   name     = "elb"
   internal = false
   subnets         = "${split(",",var.subnets)}"
+  security_groups = ["${aws_security_group.elb_sg.id}"] 
 
   listener {
-    instance_port     = 8000
+    instance_port     = 8080
     instance_protocol = "http"
-    lb_port           = 80
+    lb_port           = 8080
     lb_protocol       = "http"
   }
    
@@ -16,7 +17,7 @@
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:8000/"
+    target              = "HTTP:8080/"
     interval            = 30
   }
 
